@@ -11,7 +11,7 @@ Claude Code plugin that edits a 16:9 tutorial from a camera recording + screen r
 ## Install
 
 ```
-/plugin install screen-tutorial-edit --marketplace tamar-solu/my-claude-plugin
+/plugin install screen-tutorial-edit --marketplace tamardobrin/claude-plugins
 ```
 
 Requirements: FFmpeg on PATH, Python 3.10-3.12. First run: `python skills/screen-tutorial-edit/scripts/setup.py`

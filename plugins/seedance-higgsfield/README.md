@@ -10,7 +10,7 @@ Write Seedance 2.5 video prompts and generate them on Higgsfield, from inside Cl
 ## Setup
 
 1. Install the [Higgsfield CLI](https://higgsfield.ai) and log in: `higgsfield auth login`. The auth helper needs `node` on PATH.
-2. Install the plugin: `/plugin install seedance-higgsfield@tamar-solu-plugins`
+2. Install the plugin: `/plugin install seedance-higgsfield@tamardobrin-plugins`
 3. Restart Claude Code (or `/reload-plugins`) and check `/mcp` shows `higgsfield` as connected.
 
 The MCP server authenticates with your CLI token via `scripts/higgsfield-headers.mjs` (a Node script, so it runs headless on macOS, Linux and Windows). Higgsfield's own OAuth flow in `/mcp` currently fails with a `code_challenge` error, so the CLI login is the supported path. If the CLI is logged out, the helper sends no token and Claude Code falls back to OAuth.
