@@ -101,6 +101,25 @@
         "prompt",
         "mcp"
       ]
+    },
+    {
+      "name": "screen-tutorial-edit",
+      "source": "./plugins/screen-tutorial-edit",
+      "description": "Edit a 16:9 YouTube-style tutorial from a camera recording plus screen recordings: face in a tracked circle over the screen, synced zooms, privacy blur, tight cuts by audio, optional bottom-centre captions.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Tamar",
+        "github": "tamar-solu"
+      },
+      "license": "MIT",
+      "category": "productivity",
+      "tags": [
+        "video",
+        "tutorial",
+        "screen-recording",
+        "editing",
+        "captions"
+      ]
     }
   ]
 }
