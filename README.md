@@ -12,6 +12,7 @@ Claude Code plugins by Tamar.
 
 | Plugin | What it does |
 |---|---|
+| il-supermarket-compare | Cheapest supermarket near an Israeli address for a whole shopping list, from today's official price files |
 | screen-tutorial-edit | Edit a 16:9 tutorial from a camera recording + screen recordings (face circle, synced zooms, privacy blur, tight cuts, optional captions) |
 | seedance-higgsfield | Seedance 2.5 prompts from rough ideas, generated through the Higgsfield MCP server with cost checks |
 | cross-review | Cross-model code review with independent validation of every finding |
