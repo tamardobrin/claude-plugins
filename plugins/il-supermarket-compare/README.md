@@ -41,6 +41,7 @@ Optionally name a radius ("ברדיוס של 2 ק"מ"). The default is 4 km, str
 
 ## Limitations
 
+- The first run in a new area takes a few minutes, because branch addresses are geocoded at 1 request per second (OpenStreetMap's limit). Everything is cached, so later runs are much faster.
 - Regular shelf prices only. Promotions and club prices are not included yet.
 - Distances are straight-line, not driving.
 - Some branches don't publish on Shabbat. They are skipped with a note.
