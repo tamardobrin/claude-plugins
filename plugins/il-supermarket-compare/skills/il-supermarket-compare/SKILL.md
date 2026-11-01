@@ -15,6 +15,14 @@ This skill uses those official files. It does **not** scrape comparison sites.
 
 Don't ask about brands or quantities up front. Choose sensible defaults (see Matching) and state them in the answer.
 
+## If the price sites can't be reached, stop
+This skill needs open internet access to the chains' price sites and to nominatim.openstreetmap.org.
+Sandboxed environments block those: the regular Claude chat (claude.ai / the desktop app's Chat tab) and other cloud containers with a network allowlist.
+If `find_stores.py` or `prices.py` fails for every chain with connection, proxy or 403 errors:
+- **Don't** substitute web searches, news articles or price surveys for the comparison. A general "Rami Levy is usually cheapest" answer is not what the user asked for.
+- Tell the user plainly, in their language and without technical jargon, that this tool only works in **Claude Code** on their computer (the **Code** tab in the Claude desktop app), not in the regular chat. Suggest they open the Code tab and send the same message there.
+- If only some chains fail, continue with the rest and name the ones that were skipped.
+
 ## Workflow
 
 Scripts are in `scripts/` next to this file. Run them with `python` from that folder, with `PYTHONIOENCODING=utf-8`. Do not use `python -I`, because `requests` is installed in user site-packages.
