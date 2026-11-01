@@ -1,7 +1,7 @@
 {
   "name": "il-supermarket-compare",
   "description": "Find the cheapest supermarket near you in Israel for a whole shopping list, using today's official price-transparency files from the chains.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Tamar",
     "github": "tamardobrin"
