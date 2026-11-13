@@ -5,6 +5,7 @@ Covered portals:
   - Shufersal (incl. Yesh Hesed, Universe, Deal, Express, Sheli, BE)
   - url.publishedprices.co.il (public per-chain usernames, empty password)
   - Carrefour (incl. Carrefour City / Market)
+  - Victory (laibcatalog.co.il open JSON API, no login)
 """
 import datetime, gzip, json, os, re
 from pathlib import Path
@@ -127,15 +128,40 @@ def carrefour_pricefull(store_id):
     return parse_xml(requests.get(f"{CAR}/{path}/{f}", headers=UA, timeout=300).content)
 
 
+# ---------------- Victory (laibcatalog.co.il) ----------------
+VIC = "https://laibcatalog.co.il/webapi"
+VIC_EDI = "7290696200003"
+
+def _vic_files():
+    r = requests.get(VIC + "/api/getfiles", params={"edi": VIC_EDI}, headers=UA, timeout=120)
+    r.raise_for_status()
+    return r.json()  # the branchNumber param is ignored server-side, so filter client-side
+
+def victory_stores():
+    f = [x for x in _vic_files() if x["fileType"] in ("stores", "storesfull")]
+    if not f:
+        raise RuntimeError("no Stores file published by Victory")
+    name = sorted(f, key=lambda x: x["fileDate"])[-1]["fileName"]
+    root = parse_xml(requests.get(f"{VIC}/{VIC_EDI}/{name}", headers=UA, timeout=120).content)
+    return store_rows(root, "victory", "ויקטורי")
+
+def victory_pricefull(store_id):
+    f = [x for x in _vic_files() if x["fileType"] == "pricefull" and int(x["branchNumber"]) == int(store_id)]
+    name = _latest(sorted(f, key=lambda x: x["fileDate"]), store_id)["fileName"]
+    return parse_xml(requests.get(f"{VIC}/{VIC_EDI}/{name}", headers=UA, timeout=300).content)
+
+
 # ---------------- dispatch ----------------
 def all_chain_keys():
-    return ["shufersal", "carrefour", *PUBLISHEDPRICES_USERS]
+    return ["shufersal", "carrefour", "victory", *PUBLISHEDPRICES_USERS]
 
 def stores_for(chain):
     if chain == "shufersal":
         return shufersal_stores()
     if chain == "carrefour":
         return carrefour_stores()
+    if chain == "victory":
+        return victory_stores()
     return pp_stores(chain)
 
 def pricefull_for(chain, store_id):
@@ -143,6 +169,8 @@ def pricefull_for(chain, store_id):
         return shufersal_pricefull(store_id)
     if chain == "carrefour":
         return carrefour_pricefull(store_id)
+    if chain == "victory":
+        return victory_pricefull(store_id)
     return pp_pricefull(chain, store_id)
 
 

@@ -16,9 +16,9 @@ def tsv_path(chain, store_id):
 
 
 def banner(s):
-    """Shufersal and Carrefour run several formats (יש חסד, יוניברס, אקספרס / סיטי, מרקט) with very different prices."""
-    words = s["name"].replace("שופרסל", "").replace("קרפור", "").split()
-    if s["chain"] in ("shufersal", "carrefour") and words:
+    """Shufersal, Carrefour and Victory run several formats (יש חסד, יוניברס, אקספרס / סיטי, מרקט) with very different prices."""
+    words = s["name"].replace("שופרסל", "").replace("קרפור", "").replace("ויקטורי", "").split()
+    if s["chain"] in ("shufersal", "carrefour", "victory") and words:
         return f'{s["chain"]}:{words[0]}'
     return s["chain"]
 

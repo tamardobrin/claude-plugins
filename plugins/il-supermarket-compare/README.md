@@ -21,6 +21,7 @@ Optionally name a radius ("ברדיוס של 2 ק"מ"). The default is 4 km, str
 **Chains covered:**
 - Shufersal, including Yesh Hesed, Universe, Deal and Express
 - Carrefour
+- Victory
 - Rami Levy
 - Osher Ad
 - Yochananof
@@ -32,7 +33,7 @@ Optionally name a radius ("ברדיוס של 2 ק"מ"). The default is 4 km, str
 - Stop Market
 - Politzer
 
-**Not covered yet:** Victory, Hazi Hinam, Mahsanei HaShuk.
+**Not covered yet:** Hazi Hinam, Mahsanei HaShuk.
 
 ## Requirements
 

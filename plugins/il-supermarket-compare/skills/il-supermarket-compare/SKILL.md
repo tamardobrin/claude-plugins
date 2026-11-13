@@ -69,8 +69,9 @@ Cache: `~/.cache/il-supermarkets` (override with `IL_SUPERMARKETS_CACHE`). It is
 - Portals covered:
   - Shufersal, including Yesh Hesed, Universe, Deal and Express.
   - Carrefour.
+  - Victory (laibcatalog.co.il open API, no login).
   - publishedprices.co.il: Rami Levi, Osher Ad, Yochananof, Tiv Taam, Keshet Teamim, Dor Alon / am:pm, Freshmarket, Salach Dabach, Stop Market and Politzer.
-  - **Not** covered: Victory, Hazi Hinam, Mahsanei HaShuk, Yayno Bitan. Say so if those are likely nearby.
+  - **Not** covered: Hazi Hinam, Mahsanei HaShuk, Yayno Bitan. Say so if those are likely nearby.
 - A portal that is down just gets skipped with a warning. Report which chains were skipped.
 
 ## Don'ts
